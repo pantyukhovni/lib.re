@@ -1,11 +1,14 @@
-import './App.css';
+import c from './App.module.css';
+import Content from "./components/mainContant/Contant";
+import HeaderContainer from "./components/header/HeaderContainer";
 
-function App() {
-  return (
-    <div className="App">
-
-    </div>
-  );
+const App = () => {
+    return (
+        <div className={c.wrapper}>
+            <HeaderContainer/>
+            <Content/>
+        </div>
+    );
 }
 
 export default App;

@@ -1,0 +1,14 @@
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.button button {
+    border: none;
+    background: #FDE8CC;
+    padding: 10px;
+    cursor: pointer;
+}
