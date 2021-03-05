@@ -1,14 +1,12 @@
 
 
 
-const TRow = (props) =>{
-    const {books} = props;
-    debugger;
-    return(
-        <tr>
+const TRow = ({children}) =>{
 
-        </tr>
+    return(
+        <>
+            {children}
+        </>
     )
 }
-
 export default TRow;
