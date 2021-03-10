@@ -4,6 +4,9 @@ import c from "./Table.module.css"
 import ButtonAct from "../../Button/ButtonAct";
 
 const Table = (props) =>{
+
+
+
     return(
         <table className={c.wrapper}>
             <thead>
@@ -14,20 +17,23 @@ const Table = (props) =>{
             {
                 props.books.map(book=>
                 <TRow>
-                    <tr>
+                    <tr className={c.cell}>
                         <td>{book.Title}</td>
                         <td>{book.Author}</td>
                         <td>{book.Price}</td>
                         <td>{book.Published}</td>
                         <td>{!book.inStock ? "Нету в наличии" : "Есть в наличии"}</td>
-                        <ButtonAct type="edit"/>
-                        <ButtonAct type="del"/>
+                        <td className={c.act}>
+                            <ButtonAct className={c.button} type="edit" />
+                            <ButtonAct className={c.button} type="del"
+                                       del={props.deleteBook}
+                                       bookId={book.id}
+                            />
+                        </td>
                     </tr>
                 </TRow>
                 )
             }
-
-                {/*<TRow books={props.books}/>*/}
             </tbody>
         </table>
     )

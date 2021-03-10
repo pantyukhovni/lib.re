@@ -1,9 +1,9 @@
-
+import c from "../Table.module.css"
 
 
 const THead = (props)=>{
     return(
-        <tr>
+        <tr className={c.cell}>
             <td>Название</td>
             <td>Автор</td>
             <td>Стоимость</td>
