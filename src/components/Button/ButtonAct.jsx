@@ -27,6 +27,7 @@ const ButtonAct = ({addBook, book, type, del, bookId})=>{
                       14.6875 14.457032 38.332031-.121094 52.949218zm0 0"/>
                 </svg>
             </button>
+            
             <Modal setActive={setModaleActive} active={modaleActive}>
                 <ModifyBook book={book}/>
             </Modal>
