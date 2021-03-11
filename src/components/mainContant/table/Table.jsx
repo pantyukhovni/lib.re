@@ -20,11 +20,11 @@ const Table = (props) =>{
                     <tr className={c.cell}>
                         <td>{book.Title}</td>
                         <td>{book.Author}</td>
-                        <td>{book.Price}</td>
+                        <td>{book.Price} &#8381;</td>
                         <td>{book.Published}</td>
                         <td>{!book.inStock ? "Нету в наличии" : "Есть в наличии"}</td>
                         <td className={c.act}>
-                            <ButtonAct className={c.button} type="edit" />
+                            <ButtonAct className={c.button} type="edit" book={book} />
                             <ButtonAct className={c.button} type="del"
                                        del={props.deleteBook}
                                        bookId={book.id}
@@ -33,6 +33,7 @@ const Table = (props) =>{
                     </tr>
                 </TRow>
                 )
+
             }
             </tbody>
         </table>

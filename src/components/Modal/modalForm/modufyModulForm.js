@@ -8,9 +8,7 @@ import {addBook} from "../../../redux/reducers/bookReducer";
 
 const maxLength15 = maxLenghtCreator(15);
 
-const AddNewBookForm = (props)=>{
-
-
+const modifyBookForm = (props)=>{
     return(
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -56,30 +54,39 @@ const AddNewBookForm = (props)=>{
             </div>
             <div>
                 <button disabled={props.pristine} onClick={props.reset}>Очистить форму</button>
-                <button type="submit" disabled={props.pristine || props.submitting }>Добавить книгу</button>
+                <button type="submit" disabled={props.pristine || props.submitting}>Добавить книгу</button>
             </div>
         </form>
     )
 }
 
 
-const AddNewBookReduxForm = reduxForm({
-    form: 'addNewBook'
-})(AddNewBookForm)
+const ModifyBookReduxForm = reduxForm({
+    form: 'modifyBook'
+})(modifyBookForm)
 
-const NewBook = (props)=>{
+const ModifyBook = (props)=>{
+    debugger;
     const onSubmit = (formData)=>{
-        props.addBook(formData)
         props.setActive(false)
     }
+    const getInitialValues = ()=>{
+        return{
+            Title: props.book.Title,
+            Author: props.book.Author,
+            Price: props.book.Price,
+            Published: props.book.Published,
+            inStock: props.book.inStock
 
+        }
+    }
 
     return(
         <>
-            <AddNewBookReduxForm onSubmit={onSubmit}/>
+            <ModifyBookReduxForm onSubmit={onSubmit} initialValues={getInitialValues()}/>
         </>
     )
 }
 
 
-export default connect(null, {addBook})(NewBook);
+export default ModifyBook;
