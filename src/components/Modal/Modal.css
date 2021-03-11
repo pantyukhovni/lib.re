@@ -1,3 +1,8 @@
+
+.disabled{
+    display: none;
+}
+
 .modal{
     position: fixed;
     top: 0;
@@ -6,13 +11,13 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #000000;
-    opacity: 0.5;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .modalContent{
-    width: 800px;
-    height: 400px;
+    width: 30vw;
+    height: 60vh;
+    background: #fff;
+    border: 1px solid #000;
 }

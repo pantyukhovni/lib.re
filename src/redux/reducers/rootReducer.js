@@ -4,5 +4,6 @@ import BookReducer from "./bookReducer";
 
 const rootReducer = combineReducers({
     books: BookReducer,
+    form: formReducer
 })
 export default rootReducer;

@@ -1,11 +1,11 @@
 import THead from "../mainContant/table/THead/THead";
-import c from "./Modal.module.css"
+import  "./Modal.css"
 
-const Modal = (props) =>{
+const Modal = ({active, setActive, children}) =>{
     return(
-        <div className={c.modal}>
-            <div className={c.modalContent}>
-                <THead />
+        <div className={active ? "modal" : "disabled" } onClick={()=> setActive(false) }>
+            <div className="modalContent" onClick={e => e.stopPropagation()}>
+                {children}
             </div>
         </div>
     )

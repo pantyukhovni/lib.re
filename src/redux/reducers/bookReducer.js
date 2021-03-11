@@ -13,6 +13,7 @@ let initialState = {
 const BookReducer = (state = initialState, action) =>{
     switch (action.type) {
         case ADD_NEW_BOOK:
+            debugger;
             return {
                 ...state,
                 books:[...state.books, action.payload]
