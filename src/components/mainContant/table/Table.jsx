@@ -24,7 +24,7 @@ const Table = (props) =>{
                         <td>{book.Published}</td>
                         <td>{!book.inStock ? "Нету в наличии" : "Есть в наличии"}</td>
                         <td className={c.act}>
-                            <ButtonAct className={c.button} type="edit" book={book} />
+                            <ButtonAct className={c.button} type="edit" bookId={book.id} />
                             <ButtonAct className={c.button} type="del"
                                        del={props.deleteBook}
                                        bookId={book.id}

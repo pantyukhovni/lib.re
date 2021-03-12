@@ -64,7 +64,8 @@ const AddNewBookForm = (props)=>{
 
 
 const AddNewBookReduxForm = reduxForm({
-    form: 'addNewBook'
+    form: 'addNewBook',
+    enableReinitialize: true
 })(AddNewBookForm)
 
 const NewBook = (props)=>{

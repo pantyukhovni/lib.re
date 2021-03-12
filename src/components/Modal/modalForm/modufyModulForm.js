@@ -1,3 +1,4 @@
+import React,{useEffect} from 'react';
 import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../formControls/FormControls";
 import {maxLenghtCreator, number, requiredField} from "../../../utils/validators/validators";
@@ -8,7 +9,7 @@ import {addBook} from "../../../redux/reducers/bookReducer";
 
 const maxLength15 = maxLenghtCreator(15);
 
-const modifyBookForm = (props)=>{
+let ModifyBookForm = (props)=>{
     return(
         <form onSubmit={props.handleSubmit}>
             <div>
@@ -61,32 +62,30 @@ const modifyBookForm = (props)=>{
 }
 
 
-const ModifyBookReduxForm = reduxForm({
-    form: 'modifyBook'
-})(modifyBookForm)
+ModifyBookForm = reduxForm({
+    form: 'modifyBook',
+    enableReinitialize: true,
+})(ModifyBookForm)
 
 const ModifyBook = (props)=>{
-    debugger;
+
     const onSubmit = (formData)=>{
         props.setActive(false)
+        console.log(formData)
     }
-    const getInitialValues = ()=>{
-        return{
-            Title: props.book.Title,
-            Author: props.book.Author,
-            Price: props.book.Price,
-            Published: props.book.Published,
-            inStock: props.book.inStock
-
-        }
-    }
-
     return(
         <>
-            <ModifyBookReduxForm onSubmit={onSubmit} initialValues={getInitialValues()}/>
+            <ModifyBookForm onSubmit={onSubmit} initialValues={props.initialValues[0]}/>
         </>
     )
 }
 
 
-export default ModifyBook;
+
+let mapDispatchToProps = (state)=>{
+    debugger;
+    return{
+        initialValues: state.books.bookForModal
+    }
+}
+export default connect(mapDispatchToProps, null)(ModifyBook);
