@@ -3,7 +3,7 @@ import {Field, reduxForm} from "redux-form";
 import {Input} from "../../../formControls/FormControls";
 import {maxLenghtCreator, number, requiredField} from "../../../utils/validators/validators";
 import {connect} from "react-redux";
-import {addBook} from "../../../redux/reducers/bookReducer";
+import {addBook, modifyBook} from "../../../redux/reducers/bookReducer";
 
 
 
@@ -72,6 +72,7 @@ const ModifyBook = (props)=>{
     const onSubmit = (formData)=>{
         props.setActive(false)
         console.log(formData)
+        props.modifyBook(formData)
     }
     return(
         <>
@@ -83,9 +84,8 @@ const ModifyBook = (props)=>{
 
 
 let mapDispatchToProps = (state)=>{
-    debugger;
     return{
         initialValues: state.books.bookForModal
     }
 }
-export default connect(mapDispatchToProps, null)(ModifyBook);
+export default connect(mapDispatchToProps, {modifyBook})(ModifyBook);

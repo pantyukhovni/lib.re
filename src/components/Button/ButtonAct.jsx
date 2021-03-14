@@ -41,7 +41,7 @@ const ButtonAct = ({fetchBook, type, del, bookId})=> {
             </button>
 
             <Modal setActive={setModaleActive} active={modaleActive}>
-                <ModifyBook />
+                <ModifyBook setActive={setModaleActive}/>
             </Modal>
         </>
     )

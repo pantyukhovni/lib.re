@@ -72,6 +72,7 @@ const NewBook = (props)=>{
     const onSubmit = (formData)=>{
         props.addBook(formData)
         props.setActive(false)
+        console.log(formData)
     }
 
 

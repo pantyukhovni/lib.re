@@ -2,10 +2,8 @@ import {
     ADD_NEW_BOOK,
     DELETE_BOOK,
     FETCH_BOOK_BY_ID,
-    MODIFY_BOOK,
-    SET_BOOK
+    MODIFY_BOOK
 } from "../actionType/ActionType";
-import {Api} from "../../API/api";
 
 let initialState = {
     books: [
@@ -37,11 +35,12 @@ const BookReducer = (state = initialState, action) =>{
             }
 
         case MODIFY_BOOK:
+            debugger;
             return{
                 ...state,
                 books: state.books.map(book => {
                     if(book.id === action.book.id){
-                        return{books:action.book}
+                        return action.book
                     }
                     return book;
                 })
@@ -59,12 +58,6 @@ export const deleteBook = (id) => ({type: DELETE_BOOK, payload: id})
 export const modifyBook = (book)=>({type: MODIFY_BOOK, book})
 export const fetchBook =(bookId) => ({type: FETCH_BOOK_BY_ID, bookId})
 
-
-// export const addBookThunk = ()=>{
-//     return(dispatch)=>{
-//
-//     }
-// }
 
 
 export default BookReducer;
