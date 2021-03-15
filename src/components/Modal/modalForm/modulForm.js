@@ -10,9 +10,20 @@ const maxLength15 = maxLenghtCreator(15);
 
 const AddNewBookForm = (props)=>{
 
+    let id = Date.now();
 
     return(
         <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field name='id'
+                       type='number'
+                       label='Id'
+                       id={id}
+                       component={Input}
+                       validate={[requiredField, maxLength15]}
+
+                />
+            </div>
             <div>
                 <Field name='Title'
                        type='text'
@@ -72,7 +83,6 @@ const NewBook = (props)=>{
     const onSubmit = (formData)=>{
         props.addBook(formData)
         props.setActive(false)
-        console.log(formData)
     }
 
 

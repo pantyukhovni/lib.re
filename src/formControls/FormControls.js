@@ -1,6 +1,7 @@
 import c from "./FormControls.module.css"
 
-export const Input = ({ type, label, input, meta, ...props})=>{
+export const Input = ({id, type, label, input, meta, ...props})=>{
+
     const showError = meta.touched && meta.error;
     return(
         <div className={c.wrapper}>
