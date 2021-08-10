@@ -1,11 +1,6 @@
-import {
-    ADD_NEW_BOOK,
-    DELETE_BOOK,
-    FETCH_BOOK_BY_ID,
-    MODIFY_BOOK
-} from "../actionType/ActionType";
+import { BooksState, BooksActionType, BooksAction, IBook } from "src/types/books";
 
-let initialState = {
+let initialState: BooksState = {
     books: [
         {Title:"1", Author:'Author_1', Price:23, Published: "2021-01-01", inStock: false, id: 1},
         {Title:"2", Author:'Author_2', Price:45, Published: "2021-01-01", inStock: true, id: 2},
@@ -16,25 +11,25 @@ let initialState = {
 }
 
 
-const BookReducer = (state = initialState, action) =>{
+const BookReducer = (state = initialState, action: BooksAction): BooksState =>{
     switch (action.type) {
-        case ADD_NEW_BOOK:
+        case BooksActionType.ADD_NEW_BOOK:
             return {
                 ...state,
                 books:[...state.books, action.payload]
             }
-        case DELETE_BOOK:
+        case BooksActionType.DELETE_BOOK:
             return{
                 ...state,
                 books: state.books.filter(books => books.id !== action.payload)
             }
-        case FETCH_BOOK_BY_ID:
+        case BooksActionType.FETCH_BOOK_BY_ID:
             return{
                 ...state,
                 bookForModal: state.books.filter(book => book.id === action.bookId)
             }
 
-        case MODIFY_BOOK:
+        case BooksActionType.MODIFY_BOOK:
             debugger;
             return{
                 ...state,
@@ -53,10 +48,10 @@ const BookReducer = (state = initialState, action) =>{
     }
 }
 
-export const addBook = (book) =>({type: ADD_NEW_BOOK, payload: book})
-export const deleteBook = (id) => ({type: DELETE_BOOK, payload: id})
-export const modifyBook = (book)=>({type: MODIFY_BOOK, book})
-export const fetchBook =(bookId) => ({type: FETCH_BOOK_BY_ID, bookId})
+export const addBook = (book: IBook): BooksAction =>({type: BooksActionType.ADD_NEW_BOOK, payload: book})
+export const deleteBook = (id: number): BooksAction => ({type: BooksActionType.DELETE_BOOK, payload: id})
+export const modifyBook = (book: IBook): BooksAction =>({type: BooksActionType.MODIFY_BOOK, book})
+export const fetchBook =(bookId: number): BooksAction => ({type: BooksActionType.FETCH_BOOK_BY_ID, bookId})
 
 
 

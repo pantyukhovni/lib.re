@@ -2,8 +2,8 @@
 
 
 #folders
-.idea/
-
+.idea
+.vscode
 
 
 # dependencies
